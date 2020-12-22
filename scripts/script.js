@@ -23,6 +23,10 @@ headNavLinkToExercise2.appendChild( headNavLinkToExercise2TextNode );
 headNav.appendChild( headNavLinkToExercise2 );
 head.appendChild( headNav );
 /*Main section*/
+// const mainImage = "<img width=100% src='./images/keyboard.JPG' />"
+// main.innerHTML = mainImage
 /*Footer section*/
 /*Put all in one container*/
 app.appendChild( head );
+app.appendChild( main );
+app.appendChild( foot );
