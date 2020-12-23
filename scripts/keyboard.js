@@ -11,7 +11,7 @@ const footer = document.createElement( "footer" );
         /*Title*/
 const headerTitle = document.createElement( "h1" );
 header.appendChild( headerTitle );
-headerTitle.innerHTML = `Keyboard Excersise for ${ languageOfKeyboard } language`
+headerTitle.innerHTML = `Keyboard Exersise for ${ languageOfKeyboard } language`
 // headerTitle.innerHTML = `Level ${ level }`;
     /*Main section*/
         /*Navigation*/

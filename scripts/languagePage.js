@@ -31,12 +31,9 @@ function fillNavigation( namesOfLinks, targetsOfLinks ) {
     namesOfLinks.forEach(
         ( n, i )  => {
             if ( i+1 > numberOfExistingLinks ) {
-                console.log( "if" );
                 links[ i ] = document.createElement( "li" );
                 mainNav.appendChild( links[ i ] );
             };
-            console.log( i );
-            const fn = "setLanguage( ${ targetsOfLinks[ i ] )"
             links[ i ].innerHTML = `<a href=${ targetsOfLinks[ i ] } onclick='setLanguage( "${ namesOfLinks[ i ] }" )'> ${ namesOfLinks[ i ] }</a>`;
         }
     );
