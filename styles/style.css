@@ -16,8 +16,14 @@ header {
     color: hsl(var(--color), 100%, 15%);
     height: 20%
 }
+h1 {
+    display: inline-block;
+    margin-block-start: 1rem;
+    margin-inline-start: 2rem;
+    margin-inline-end: 2rem;
+}
 main {
-    background-color: hsla(var(--backgroundColor), 100%, 75%, 50%);
+    background-color: rgba(15, 15, 15, 80%);
     color: hsl(var(--color), 100%, 15%);
     height: 60%;
 }
@@ -25,4 +31,20 @@ footer {
     background-color: hsla(var(--backgroundColor), 100%, 75%, 90%);
     color: hsl(var(--color), 100%, 15%);
     height: 20%;
+}
+ul {
+    list-style-type: none;
+    font-size: 2rem;
+    padding: 2rem;
+}
+li {
+    margin-left: 0px;
+    margin-bottom: 0.5rem;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+    color: lightgreen;
 }
