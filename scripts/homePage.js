@@ -8,7 +8,7 @@ const footer = document.createElement( "footer" );
         /*Title*/
 const headerTitle = document.createElement( "h1" );
 header.appendChild( headerTitle );
-headerTitle.innerHTML = "Typing Excercises";
+headerTitle.innerHTML = "Typing Exercises";
     /*Main section*/
         /*Navigation*/
 const mainNav = document.createElement( "ul" );
