@@ -1,3 +1,6 @@
+let languageOfKeyboard = localStorage.getItem( 'gundarsTypingKeyboardLanguage' );
+let level = 1;
+console.log( `languageOfKeyboard = ${ languageOfKeyboard }`);
 /*Container to put all elements in.*/
 const app = document.getElementById( "App" );
 /*Three parts (sections) the screen will be divided.*/
@@ -8,22 +11,17 @@ const footer = document.createElement( "footer" );
         /*Title*/
 const headerTitle = document.createElement( "h1" );
 header.appendChild( headerTitle );
-headerTitle.innerHTML = "Select a language";
+headerTitle.innerHTML = `Keyboard Excersise for ${ languageOfKeyboard } language`
+// headerTitle.innerHTML = `Level ${ level }`;
     /*Main section*/
         /*Navigation*/
 const mainNav = document.createElement( "ul" );
 const links = [];
 const namesOfLinks = [
-    "English",
-    "Russian",
-    "Latvian",
     "go back"
 ];
 const targetsOfLinks = [
-    "keyboard.html",
-    "keyboard.html",
-    "keyboard.html",
-    "index.html"
+    "language.html"
 ];
 fillNavigation( namesOfLinks, targetsOfLinks );
 function fillNavigation( namesOfLinks, targetsOfLinks ) {
@@ -36,13 +34,9 @@ function fillNavigation( namesOfLinks, targetsOfLinks ) {
                 mainNav.appendChild( links[ i ] );
             };
             console.log( i );
-            const fn = "setLanguage( ${ targetsOfLinks[ i ] )"
-            links[ i ].innerHTML = `<a href=${ targetsOfLinks[ i ] } onclick='setLanguage( "${ namesOfLinks[ i ] }" )'> ${ namesOfLinks[ i ] }</a>`;
+            links[ i ].innerHTML = `<a href=${ targetsOfLinks[ i ] }>${ namesOfLinks[ i ] }</a>`;
         }
     );
-};
-function setLanguage( n ) {
-    localStorage.setItem('gundarsTypingKeyboardLanguage', n );
 };
 main.appendChild( mainNav );
     /*Footer section*/
