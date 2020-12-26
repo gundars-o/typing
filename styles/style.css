@@ -48,3 +48,22 @@ a {
 a:hover {
     color: lightgreen;
 }
+.textToWriteArea {
+    margin-top: 2rem;
+    margin-left: 3rem;
+    font-size: 2rem;
+    color: white;
+}
+textArea {
+    margin-top: 2rem;
+    margin-left: 3rem;
+    background-color: lightgreen;
+    font-size: 2rem;
+    border-style: none;
+}
+.green {
+    color: green;
+}
+.red {
+    color: red;
+}
