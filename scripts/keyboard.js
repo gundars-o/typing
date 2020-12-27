@@ -1,5 +1,8 @@
 let languageOfKeyboard = localStorage.getItem( 'gundarsTypingKeyboardLanguage' );
 let level = 1;
+let correctTimes = 0;
+let allLevelsOfOneLanguage;
+let setOfAllowedSymbols;
 console.log( `languageOfKeyboard = ${ languageOfKeyboard }`);
 /*Container to put all elements in.*/
 const app = document.getElementById( "App" );
@@ -12,7 +15,6 @@ const footer = document.createElement( "footer" );
 const headerTitle = document.createElement( "h1" );
 header.appendChild( headerTitle );
 headerTitle.innerHTML = `Keyboard Exersise for ${ languageOfKeyboard } language`
-// headerTitle.innerHTML = `Level ${ level }`;
     /*Main section*/
         /*Navigation*/
 const mainNav = document.createElement( "ul" );
@@ -27,28 +29,65 @@ fillNavigation( namesOfLinks, targetsOfLinks );
 const textToWriteArea = document.createElement( "p" );
 mainNav.appendChild( textToWriteArea );
 textToWriteArea.className += "textToWriteArea";
-const textToWrite = newTextToWrite();
+getAllLevelsOfChosenLanguage();
+getTheSetOfAllowedSymbols();
+let textToWrite = newTextToWrite();
 const textArea = document.createElement( "textarea" );
-// textArea.setAttribute( "onchange", "hello" );
 textArea.setAttribute( "autofocus", true );
 mainNav.appendChild( textArea );
 textArea.addEventListener(
     "input", ( event ) => {
-        // textToWriteFormated( textToWrite, event.target.value  );
-        console.log( event.target.value ); 
-        textToWriteArea.innerHTML = textToWriteFormated( textToWrite, event.target.value );
+        if ( textToWrite === event.target.value ) {
+            correctTimes++;
+            if ( correctTimes === 3 ) {
+                correctTimes = 0;
+                level++;
+                getTheSetOfAllowedSymbols();
+                footerLevel.innerHTML = `Level ${ level }`;
+            };
+            textToWrite = newTextToWrite();
+            event.target.value = ""
+            textArea.innerText = "";
+        };
+        const help = textToWriteFormated( textToWrite, event.target.value );
+        textToWriteArea.innerHTML = help;
     }
 );
 textArea.innerText = "";
-textToWriteArea.innerHTML = textToWriteFormated( textToWrite );
+textToWriteArea.innerHTML = textToWriteFormated( textToWrite, "" );
 main.appendChild( mainNav );
 /*Footer section*/
+const footerLevel = document.createElement( "p" );
+footer.appendChild( footerLevel );
+footerLevel.setAttribute( "class", "level" );
+footerLevel.innerHTML = `Level ${ level }`;
 /*Put all in one container*/
 app.appendChild( header );
 app.appendChild( main );
 app.appendChild( footer );
+function getTheSetOfAllowedSymbols() {
+    setOfAllowedSymbols = "";
+    for ( i = 1; i <= level; i++ ) {
+        setOfAllowedSymbols += allLevelsOfOneLanguage[ i-1 ];
+    };
+};
+function getAllLevelsOfChosenLanguage() {
+    switch( languageOfKeyboard ) {
+        case "Latvian":
+            allLevelsOfOneLanguage = dataLatvian;
+            break;
+        case "English":
+            allLevelsOfOneLanguage = dataLatvian;
+            break;
+        case "Russian":
+            allLevelsOfOneLanguage = dataLatvian;
+            break;
+        default:
+            console.log( "Language not available" );
+    };
+    console.log( allLevelsOfOneLanguage );
+};
 function textToWriteFormated( t, ta ) {
-    console.log( ta );
     let h = "";
     if ( t.length > 0 ) {
         for ( i = 0; i < t.length; i++ ) {
@@ -63,11 +102,11 @@ function textToWriteFormated( t, ta ) {
             h += `<span${ spanClassName }>${ t[ i ] }</span>\n`;
         };
     };
-    console.log( h );
     return h;
 };
 function newTextToWrite() {
-    return "jkl;fdsa";
+
+    return setOfAllowedSymbols;
 };
 function fillNavigation( namesOfLinks, targetsOfLinks ) {
     const numberOfExistingLinks = mainNav.querySelectorAll( "li" ).length;
