@@ -67,3 +67,7 @@ textArea {
 .red {
     color: red;
 }
+.level {
+    font-size: 2rem;
+    margin-left: 2rem;
+}
