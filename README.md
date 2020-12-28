@@ -1,5 +1,6 @@
 # Purpose (Usage of this project in the future)
-To include this project in my portfolio.
+Use it daily in the future to improve my typing skills.
+Include this project in my portfolio.
 
 # Project description
 Project contains excercises to improve typing skills.
