@@ -3,9 +3,11 @@ branch controll-last-level
 1 - ( DONE ) - Stop increasing a number of level on the last level.
 2 - ( DONE ) - Mark last level with "(max)". ( DONE )
 branch decrease-level
-1 - ( DONE ) - Decrease level in case of typing mistakes in actual level exceeds 1% .
+1 - ( DONE ) - Decrease level in case of typing mistakes in actual level exceeds 1%.
+branch add-other-languages
+1 - ( DONE ) - Correct decreasing level in case of typing mistakes in actual level exceeds 1% (not equal and exceeds).
+2 - ( DONE ) - Add other languages.
 TODO:
-Add other languages.
 Random order of symbols.
 IDEAS:
 Show total number of typed symbols.
@@ -17,7 +19,8 @@ Show number of symbols correctly typed per minute.
 Show aproximate number of words per minute with average 7 symbols per word.
 Count deleting green symbol as a mistake.
 Settings available by user:
-     - times of repeating the same set of characters in each level;
-     - decrease level in case percentage of mistakes exceeds set percentage (100% - means do not decrease at all).
+    - times of repeating the same set of characters in each level.
+    - percentage when to decrease level in case percentage of mistakes exceeds set percentage (100% - means do not decrease at all).
+    - "Random order" / "Original order" of symbols inside the level.
 "Learn Text" for typing the text as it is.
 "Learn Numbers" for typing only numbers.
