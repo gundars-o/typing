@@ -3,7 +3,7 @@ Use it daily in the future to improve my typing skills.
 Include this project in my portfolio.
 
 # Project description
-Project contains excercises to improve typing skills.
+Project contains exercises to improve typing skills.
 
 # Functionality (Client requirements)
 ## "Home" page

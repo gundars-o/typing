@@ -3,6 +3,8 @@ let level = 1;
 let correctTimes = 0;
 let allLevelsOfOneLanguage;
 let setOfAllowedSymbols;
+let countRightInThisLevel = 0;
+let countWrongInThisLevel = 0;
 console.log( `languageOfKeyboard = ${ languageOfKeyboard }`);
 /*Container to put all elements in.*/
 const app = document.getElementById( "App" );
@@ -40,12 +42,19 @@ textArea.addEventListener(
         if ( textToWrite === event.target.value ) {
             correctTimes++;
             if ( correctTimes === 3 ) {
+                countRightInThisLevel = textToWrite.length * correctTimes;
                 correctTimes = 0;
-                if ( level < allLevelsOfOneLanguage.length ) {
+                const mistakesPercentageInThisLevel = countWrongInThisLevel / countRightInThisLevel * 100;
+                if ( level < allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel < 1 ) {
                     level++;
+                };
+                if ( level > 1 && mistakesPercentageInThisLevel >= 1 ) {
+                    level--;
                 };
                 getTheSetOfAllowedSymbols();
                 footerLevel.innerHTML = `Level ${ level }${ level === allLevelsOfOneLanguage.length ? " ( max )" : "" }`;
+                countRightInThisLevel = 0;
+                countWrongInThisLevel = 0;
             };
             textToWrite = newTextToWrite();
             event.target.value = ""
@@ -99,6 +108,7 @@ function textToWriteFormated( t, ta ) {
                     spanClassName = ' class="green"';
                 } else {
                     spanClassName = ' class="red"';
+                    countWrongInThisLevel++;
                 };
             };
             h += `<span${ spanClassName }>${ t[ i ] }</span>\n`;
