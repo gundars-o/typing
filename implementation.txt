@@ -1,4 +1,23 @@
 2020-12-28
-controll-last-level
-1 - Stop increasing a number of level on the last level.
-2 - Mark last level with "(max)".
+branch controll-last-level
+1 - ( DONE ) - Stop increasing a number of level on the last level.
+2 - ( DONE ) - Mark last level with "(max)". ( DONE )
+branch decrease-level
+1 - ( DONE ) - Decrease level in case of typing mistakes in actual level exceeds 1% .
+TODO:
+Add other languages.
+Random order of symbols.
+IDEAS:
+Show total number of typed symbols.
+Show total number of correctly typed symbols.
+Show total number of wrongly typed symbols.
+Show percentage of wrongly typed symbols (from all symbols).
+Show total time of exercising.
+Show number of symbols correctly typed per minute.
+Show aproximate number of words per minute with average 7 symbols per word.
+Count deleting green symbol as a mistake.
+Settings available by user:
+     - times of repeating the same set of characters in each level;
+     - decrease level in case percentage of mistakes exceeds set percentage (100% - means do not decrease at all).
+"Learn Text" for typing the text as it is.
+"Learn Numbers" for typing only numbers.
