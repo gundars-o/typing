@@ -45,10 +45,10 @@ textArea.addEventListener(
                 countRightInThisLevel = textToWrite.length * correctTimes;
                 correctTimes = 0;
                 const mistakesPercentageInThisLevel = countWrongInThisLevel / countRightInThisLevel * 100;
-                if ( level < allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel < 1 ) {
+                if ( level < allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel <= 1 ) {
                     level++;
                 };
-                if ( level > 1 && mistakesPercentageInThisLevel >= 1 ) {
+                if ( level > 1 && mistakesPercentageInThisLevel > 1 ) {
                     level--;
                 };
                 getTheSetOfAllowedSymbols();
@@ -88,10 +88,10 @@ function getAllLevelsOfChosenLanguage() {
             allLevelsOfOneLanguage = dataLatvian;
             break;
         case "English":
-            allLevelsOfOneLanguage = dataLatvian;
+            allLevelsOfOneLanguage = dataEnglish;
             break;
         case "Russian":
-            allLevelsOfOneLanguage = dataLatvian;
+            allLevelsOfOneLanguage = dataRussian;
             break;
         default:
             console.log( "Language not available" );
