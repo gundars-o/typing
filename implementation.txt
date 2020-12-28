@@ -1,0 +1,4 @@
+2020-12-28
+controll-last-level
+1 - Stop increasing a number of level on the last level.
+2 - Mark last level with "(max)".

@@ -41,9 +41,11 @@ textArea.addEventListener(
             correctTimes++;
             if ( correctTimes === 3 ) {
                 correctTimes = 0;
-                level++;
+                if ( level < allLevelsOfOneLanguage.length ) {
+                    level++;
+                };
                 getTheSetOfAllowedSymbols();
-                footerLevel.innerHTML = `Level ${ level }`;
+                footerLevel.innerHTML = `Level ${ level }${ level === allLevelsOfOneLanguage.length ? " ( max )" : "" }`;
             };
             textToWrite = newTextToWrite();
             event.target.value = ""
