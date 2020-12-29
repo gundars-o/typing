@@ -76,6 +76,33 @@ footerLevel.innerHTML = `Level ${ level }`;
 app.appendChild( header );
 app.appendChild( main );
 app.appendChild( footer );
+function putCharacterInStringAtPosition( character, string, position ) {
+    return string.substring( 0, position ) +
+        character +
+        string.substring( position + 1, string.length );
+};
+function randomOrderOfSymbols() {
+    let randomSetOfAllowedSymbols = setOfAllowedSymbols;
+    let symbolsLeft = randomSetOfAllowedSymbols.length - 1;
+    let position;
+    let temporarySymbol;
+    while ( symbolsLeft ) {
+        position = Math.floor( Math.random() * ( symbolsLeft + 1 ) );
+        temporarySymbol = randomSetOfAllowedSymbols[ symbolsLeft ];
+        randomSetOfAllowedSymbols = putCharacterInStringAtPosition (
+            randomSetOfAllowedSymbols.charAt( position ),
+            randomSetOfAllowedSymbols,
+            symbolsLeft
+        );
+        randomSetOfAllowedSymbols = putCharacterInStringAtPosition (
+            temporarySymbol,
+            randomSetOfAllowedSymbols,
+            position
+        );
+        symbolsLeft--;
+    };
+    return randomSetOfAllowedSymbols;
+};
 function getTheSetOfAllowedSymbols() {
     setOfAllowedSymbols = "";
     for ( i = 1; i <= level; i++ ) {
@@ -117,8 +144,7 @@ function textToWriteFormated( t, ta ) {
     return h;
 };
 function newTextToWrite() {
-
-    return setOfAllowedSymbols;
+    return randomOrderOfSymbols();
 };
 function fillNavigation( namesOfLinks, targetsOfLinks ) {
     const numberOfExistingLinks = mainNav.querySelectorAll( "li" ).length;
