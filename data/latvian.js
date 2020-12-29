@@ -1,10 +1,8 @@
 const dataLatvian = [
     "asdf",
-    "āš",
-    "ASDF",
-    "ĀŠ",
     "jkl;",
-    "ķļ",
+    "ASDF",
     "JKL:",
-    "ĶĻ"
+    "āšķļ",
+    "ĀŠĶĻ"
 ];

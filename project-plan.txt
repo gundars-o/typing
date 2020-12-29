@@ -1,10 +1,9 @@
 PROJECT PLAN:
 a-typing
-    [ IDEA ] - "Learn Text" for typing the text as it is.
+    [ IDEA ] "Learn Text" for typing the text as it is.
     aa-keyboard-exercise
         [ TODO ] "Numbers" for typing only numbers.
         [ TODO ] "Symbols" for typing only symbols. Depends from language.
-        [ TODO ] Show "Entering level" for each level except the first level. In "Entering level" only new symbols are shown.
         aab-show-summary
             [ IDEA ] Show total number of typed symbols.
             [ IDEA ] Show total number of correctly typed symbols.
@@ -22,13 +21,16 @@ a-typing
 PROJECT HISTORY:
 2020-12-28
 branch controll-last-level
-1 - [ DONE ] - Stop increasing a number of level on the last level. [ aa-keyboard-exercise ]
-2 - [ DONE ] - Mark last level with "(max)". [ aa-keyboard-exercise ]
+1 - [ DONE ] Stop increasing a number of level on the last level. [ aa-keyboard-exercise ]
+2 - [ DONE ] Mark last level with "(max)". [ aa-keyboard-exercise ]
 branch decrease-level
-1 - [ DONE ] - Decrease level in case of typing mistakes in actual level exceeds 1%. [ aa-keyboard-exercise ]
+1 - [ DONE ] Decrease level in case of typing mistakes in actual level exceeds 1%. [ aa-keyboard-exercise ]
 branch add-other-languages
-1 - [ DONE ] - Correct decreasing level in case of typing mistakes in actual level exceeds 1% (not equal and exceeds). [ aa-keyboard-exercise ]
-2 - [ DONE ] - Add other languages. [ aa-keyboard-exercise ]
+1 - [ DONE ] Correct decreasing level in case of typing mistakes in actual level exceeds 1% (not equal and exceeds). [ aa-keyboard-exercise ]
+2 - [ DONE ] Add other languages. [ aa-keyboard-exercise ]
 2020-12-29
 branch random-order
-1 - [ INPR ] - Random order of symbols. [ aa-keyboard-exercise ]
+1 - [ DONE ] Random order of symbols. [ aa-keyboard-exercise ]
+2 - [ DONE ] Created file "project-plan.txt".
+branch entry-level
+1 - [ DONE ] Show "Entering level" for each level except the first level. In "Entering level" only new symbols are shown. [ aa-keyboard-exercise ]

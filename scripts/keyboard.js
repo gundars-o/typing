@@ -5,6 +5,8 @@ let allLevelsOfOneLanguage;
 let setOfAllowedSymbols;
 let countRightInThisLevel = 0;
 let countWrongInThisLevel = 0;
+let isEntryLevel = false;
+let isMaxLevel = false;
 console.log( `languageOfKeyboard = ${ languageOfKeyboard }`);
 /*Container to put all elements in.*/
 const app = document.getElementById( "App" );
@@ -45,19 +47,35 @@ textArea.addEventListener(
                 countRightInThisLevel = textToWrite.length * correctTimes;
                 correctTimes = 0;
                 const mistakesPercentageInThisLevel = countWrongInThisLevel / countRightInThisLevel * 100;
+                if ( level === allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel <= 1 ) {
+                    isEntryLevel = false;
+                };
                 if ( level < allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel <= 1 ) {
-                    level++;
+                    if ( ! isEntryLevel ) level++;
+                    isEntryLevel = ! isEntryLevel;
                 };
                 if ( level > 1 && mistakesPercentageInThisLevel > 1 ) {
-                    level--;
+                    if ( isEntryLevel ) level--;
+                    isEntryLevel = ! isEntryLevel;
                 };
                 getTheSetOfAllowedSymbols();
-                footerLevel.innerHTML = `Level ${ level }${ level === allLevelsOfOneLanguage.length ? " ( max )" : "" }`;
+                if ( level === allLevelsOfOneLanguage.length ) {
+                    isMaxLevel = true;
+                } else {
+                    isMaxLevel = false;
+                };
+                footerLevel.innerHTML = `Level ${
+                    level
+                }${
+                    isMaxLevel ? " ( max )" : ""
+                }${
+                    isEntryLevel ? " ( entry level ) " : ""
+                }`;
                 countRightInThisLevel = 0;
                 countWrongInThisLevel = 0;
             };
             textToWrite = newTextToWrite();
-            event.target.value = ""
+            event.target.value = "";
             textArea.innerText = "";
         };
         const help = textToWriteFormated( textToWrite, event.target.value );
@@ -105,8 +123,12 @@ function randomOrderOfSymbols() {
 };
 function getTheSetOfAllowedSymbols() {
     setOfAllowedSymbols = "";
-    for ( i = 1; i <= level; i++ ) {
-        setOfAllowedSymbols += allLevelsOfOneLanguage[ i-1 ];
+    if ( isEntryLevel ) {
+        setOfAllowedSymbols = allLevelsOfOneLanguage[ level - 1 ];
+    } else {
+        for ( i = 1; i <= level; i++ ) {
+            setOfAllowedSymbols += allLevelsOfOneLanguage[ i-1 ];
+        };
     };
 };
 function getAllLevelsOfChosenLanguage() {
