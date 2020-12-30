@@ -17,9 +17,11 @@ const namesOfLinks = [
     "English",
     "Russian",
     "Latvian",
+    "Numbers",
     "go back"
 ];
 const targetsOfLinks = [
+    "keyboard.html",
     "keyboard.html",
     "keyboard.html",
     "keyboard.html",

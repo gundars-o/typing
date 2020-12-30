@@ -7,6 +7,7 @@ let countRightInThisLevel = 0;
 let countWrongInThisLevel = 0;
 let isEntryLevel = false;
 let isMaxLevel = false;
+let maxMistakesPercentageInLevel = 20;
 console.log( `languageOfKeyboard = ${ languageOfKeyboard }`);
 /*Container to put all elements in.*/
 const app = document.getElementById( "App" );
@@ -47,14 +48,14 @@ textArea.addEventListener(
                 countRightInThisLevel = textToWrite.length * correctTimes;
                 correctTimes = 0;
                 const mistakesPercentageInThisLevel = countWrongInThisLevel / countRightInThisLevel * 100;
-                if ( level === allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel <= 1 ) {
+                if ( level === allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel <= maxMistakesPercentageInLevel ) {
                     isEntryLevel = false;
                 };
-                if ( level < allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel <= 1 ) {
+                if ( level < allLevelsOfOneLanguage.length && mistakesPercentageInThisLevel <= maxMistakesPercentageInLevel ) {
                     if ( ! isEntryLevel ) level++;
                     isEntryLevel = ! isEntryLevel;
                 };
-                if ( level > 1 && mistakesPercentageInThisLevel > 1 ) {
+                if ( level > 1 && mistakesPercentageInThisLevel > maxMistakesPercentageInLevel ) {
                     if ( isEntryLevel ) level--;
                     isEntryLevel = ! isEntryLevel;
                 };
@@ -141,6 +142,9 @@ function getAllLevelsOfChosenLanguage() {
             break;
         case "Russian":
             allLevelsOfOneLanguage = dataRussian;
+            break;
+        case "Numbers":
+            allLevelsOfOneLanguage = dataNumbers;
             break;
         default:
             console.log( "Language not available" );
